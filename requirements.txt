@@ -1,6 +1,6 @@
 mesa
 names-dataset
-langchain
 openai
-faiss-cpu
-tiktoken
+matplotlib
+numpy
+pandas
