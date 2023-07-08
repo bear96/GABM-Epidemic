@@ -1,5 +1,5 @@
 # GABM-SIR
-This study offers a new paradigm of individual-level modeling to address the grand challenge of incorporating human behavior in epidemic models. By utilizing generative artificial intelligence in an agent-based epidemic model, each agent is empowered to make its own reasonings and decisions via connecting to a large language model like ChatGPT. Through various simulation experiments, we present compelling evidence that generative agents mimic real-world behaviors such as quarantining when sick, and self-isolation when cases rise. Collectively, the agents demonstrate patterns akin to multiple waves observed in recent pandemics followed by a period of endemic. Moreover, the agents successfully flatten the epidemic curve. This study opens up a potential to improve dynamic system modeling by offering a way to represent human brain, reasoning, and decision making.
+Incorporating individual-level reasoning and decision making in epidemic models via large language models such as ChatGPT.
 
 ## Installation
 You will need an OpenAI API key to run this program. Please create an OpenAI API key before following the steps below.
@@ -18,5 +18,9 @@ Currently, the default values of the hyperparameters are: <br>
 * no_of_runs: 1
 * offset: 0
 * load_from_run: 0
+
+## Model Overview
+We present an innovative approach to incorporate human behavior into epidemic models by combining generative artificial intelligence (AI) with epidemic modeling. Our approach involves the development of a generative agent-based model (GABM) that utilizes GPT-3.5 to create agents with realistic personas. These agents possess the ability to reason, make decisions, and adapt their behavior in response to the evolving epidemic, taking into account individual characteristics, virus information, perceived health, and infection risks. Through extensive simulation experiments, we demonstrate that the GABM accurately replicates real-world conditions, generating patterns that closely resemble observed pandemic waves and endemic periods. By integrating generative AI into epidemic modeling, our approach enables a comprehensive representation of complex human behavior dynamics, leading to improved accuracy in projections and more informed policy decisions. <br>
+<br>
 
 Please create an issue if something isn't working for you. We'll be happy to help.
