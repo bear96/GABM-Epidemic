@@ -48,7 +48,6 @@ if __name__ == "__main__":
         else:
             model = World(args, initial_healthy=args.no_init_healthy, initial_infected=args.no_init_infect,contact_rate=args.contact_rate)
 
-        # model = World.load_checkpoint(r"checkpoint\run-1\GABM-8.pkl")
         model.run_model(checkpoint_path, args.offset)
         data = model.datacollector.get_model_vars_dataframe() #collect data from the successful run of the model
 
