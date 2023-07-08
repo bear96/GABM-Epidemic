@@ -3,6 +3,16 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#folders
+output/
+checkpoint/
+
+#extra files
+*.csv
+*.txt
+*.xlsx
+*.docx
+
 # C extensions
 *.so
 
@@ -25,6 +35,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.pkl
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
