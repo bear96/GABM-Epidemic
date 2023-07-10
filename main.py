@@ -62,9 +62,11 @@ if __name__ == "__main__":
 
         #Insert a step column function
         df.insert(0, 'Step',range(0,len(df)))
-        
+
+        #save data
         df.to_csv(output_path+f"/{args.name}-data.csv")
-        
+
+        #plot and save required figures for each run
         plt.figure(figsize=(10,6))
         plt.plot(df['Step'], df['Susceptible'], label="Susceptible")
         plt.plot(df['Step'], df['Infected'], label="Infected")
@@ -85,4 +87,5 @@ if __name__ == "__main__":
         plt.legend()
         plt.savefig(output_path + f'/{args.name}-NumHome.png', bbox_inches='tight')
 
+        #save final checkpoint after successful run
         model.save_checkpoint(file_path = checkpoint_path + f"/{args.name}-completed.pkl")
