@@ -10,21 +10,21 @@ import pickle
 # functions for mesa.DataCollector in World class
 def compute_num_susceptible(model):
     '''
-    Computers number of Susceptible agents for data frame
+    Computers number of susceptible agents for data frame
     '''
     return sum([1 for a in model.schedule.agents if a.health_condition == "Susceptible"])
 
 
 def compute_num_infected(model):
     '''
-    Computers number of Infected agents for data frame
+    Computers number of infected agents for data frame
     '''
     return sum([1 for a in model.schedule.agents if a.health_condition == "Infected"])
 
 
 def compute_num_recovered(model):
     '''
-    Computers number of Recovered agents for data frame
+    Computers number of recovered agents for data frame
     '''
     return sum([1 for a in model.schedule.agents if a.health_condition == "Recovered"])
 
@@ -45,7 +45,7 @@ def compute_num_at_home(model):
 
 class World(mesa.Model):
     '''
-    The world where Citizens roam
+    The world where Citizens exist
     '''
     def __init__(self, args, initial_healthy=2, initial_infected=1, contact_rate=5):
         
@@ -53,7 +53,7 @@ class World(mesa.Model):
         #     Intialization of the world       #
         ########################################
     
-        #Agent Initialization
+        #Agent initialization
         self.initial_healthy=initial_healthy
         self.initial_infected=initial_infected
         self.population=initial_healthy+initial_infected
@@ -61,7 +61,7 @@ class World(mesa.Model):
         self.offset = 0 #Offset for checkpoint load
         self.name = args.name
 
-        #World Creation Initialization
+        #World creation initialization
         world_dimensions=factorize(self.population)
         self.height=world_dimensions[0]
         self.width=world_dimensions[1]
@@ -163,7 +163,7 @@ class World(mesa.Model):
 
     def step(self):
         '''
-        Model Time step
+        Model time step
         '''
         
         for agent in self.schedule.agents: #Cycle through each agent's substep
@@ -209,7 +209,7 @@ class World(mesa.Model):
 
             """
             early stopping condition: if there are no more infected agents left, 
-            run for three more time steps, save the model and then end program
+            run for two more time steps, save the model and then end program
             """
             if self.infected==0:
                 end_program+=1
@@ -229,10 +229,6 @@ class World(mesa.Model):
         with open(file_path,"wb") as file:
             pickle.dump(self, file)
     
-    '''
-    A static method in Python is a function within a class that is bound to the class rather than an instance, 
-    does not receive any implicit arguments, and can be called on the class itself without creating an instance
-    '''
     @staticmethod
     def load_checkpoint(file_path):
         with open(file_path,"rb") as file:
