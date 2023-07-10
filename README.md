@@ -1,8 +1,9 @@
 # GABM-SIR
-Incorporating individual-level reasoning and decision making in epidemic models via large language models such as ChatGPT.
+A new modeling technique using generative AI applied to an epidemic to incorporate human reasoning and decision making.
 
 ## Installation
 You will need an OpenAI API key to run this program. Please create an OpenAI API key before following the steps below.
+If you do not have an API key, here is a link to create an API key: https://platform.openai.com/account/api-keys
 
 Step 1: Clone the repository using `git clone https://github.com/bear96/GABM.git`. <br>
 Step 2: Install the required packages using `pip install -r requirements.txt` <br>
