@@ -6,6 +6,8 @@ from utils import generate_names,generate_big5_traits, factorize, update_day, cl
 import random
 import pickle
 
+
+# functions for mesa.DataCollector in World class
 def compute_num_susceptible(model):
     '''
     Computers number of Susceptible agents for data frame
@@ -130,10 +132,10 @@ class World(mesa.Model):
                             )
             # add agents to the scheduler
             self.schedule.add(citizen)
-            #Updates to new agent ID
+            # Updates to new agent ID
             agent_id += 1 
 
-        self.distribute_agents()
+        self.distribute_agents() #distributes agents in the grid world
 
     def distribute_agents(self):
         grid_size = (self.width,self.height)
@@ -163,13 +165,12 @@ class World(mesa.Model):
         '''
         Model Time step
         '''
-        #Cycle through each agent's substep
-        for agent in self.schedule.agents:
+        
+        for agent in self.schedule.agents: #Cycle through each agent's substep
             agent.prepare_step()
         self.decide_agent_interactions()
        
-       #track global contact rate
-        for agent in self.schedule.agents:
+        for agent in self.schedule.agents: #track global contact rate
             self.total_contact_rates += len(agent.agent_interaction)
         self.track_contact_rate.append(self.total_contact_rates)
         self.total_contact_rates = 0
