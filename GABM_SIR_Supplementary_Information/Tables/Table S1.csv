@@ -1,0 +1,11 @@
+Attribute name,Attribute description,Attribute state
+unique_id,Used for scheduler step function and data collection,Static
+name,The name of the citizen,Static
+age,"The age of the citizen (age ? [18, 65) and age ? Z)",Static
+traits,The traits of a citizen selected randomly from each of the Big Five traits (X),Static
+location,Determines whether the citizen is staying at home or going out on the grid. Going to grid and going to work are synonymous in the code base because we leverage Mesa’s Library to create a virtual grid for agents who go outside.,Dynamic
+pos,"The Mesa library requires agents to have a pos (position). This is not used in our code beyond setting a position for each agent on the grid. This could be useful for animation of the simulation in the future. For now, it can be functionally be ignored in the code",Static
+Health_Condition,"Health condition of the agent can be ""Susceptible”, “To_Be_Infected”, ""Infected"", or ""Recovered""",Dynamic
+day_infected,Stores the number of days the citizen has been infected,Dynamic
+agent_interaction,Stores citizen objects with which the current citizen will interact with in the current timestep,Dynamic
+"width, height",Defines the width and height of the simulated world.,Static

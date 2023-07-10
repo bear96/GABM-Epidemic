@@ -1,0 +1,18 @@
+Regressions,"Regression 1 (N=66,960)","Regression 2 (N=66,960)","Regression 3 (N=66,960)","Regression 4 (N=67,776)"
+Own Health,,,,
+Light Cough,5.69*** (0.14),5.75*** (0.16),5.40*** (0.16),5.60***  (0.16)
+Fever & Cough,5.42*** (0.13),5.26*** (0.15),4.94*** (0.15),5.13***  (0.15)
+Societal Health,,1.59*** (0.02),3.97*** (0.05),3.95***  (0.05)
+Societal Health2,,,-0.65*** (0.01),-0.65*** (0.01)
+Agreeableness,,,,-0.11       (0.17)
+Conscientiousness,,,,-0.70*** (0.17)
+Surgency,,,,-0.26       (0.17)
+Emotional stability,,,,-0.59**    (0.17)
+Intellect,,,,-0.87*** (0.17)
+Age,,,,0.01         (0.01)
+Gender,,,,-0.84*** (0.17)
+Fixed effect ,×,×,×,
+Random effect,,,,×
+Pseudo R2,0.12,0.41,0.46,
+BIC,"52,359","35,227","31,949","39,793"
+"Note: ***: p<0.001, **: p<0.01",,,,

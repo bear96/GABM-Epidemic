@@ -1,0 +1,7 @@
+Step Number,Action,"Decision Variables, Inputs, and Outcomes"
+1,Determine if the agent stays home or goes out,"Inputs: Provided context, potentially including feedback information or absence of feedback. Decision Model: Entrusted to ChatGPT, an intelligent language model that analyzes the input context and determines the agent's choice. Outcome: Stay Home or Go Out"
+2,Update agent's location,"Outcome Determinant: The decision made in step 1. Update: If Stay Home, set location to home. If Go Out, set location to grid."
+3,Enable interactions with other agents,Condition: The agent chose Go Out in step 1. Interactions: Agent interacts with up to five other agents (contact_rate). Outcome: List of agents to interactinteracted with.
+4,Assess possibility of infection transmission,Inputs: Health condition of interacting agents. Condition: If an agent is infected and contacts another agent who is susceptible. Outcome: Update state to to_be_infected if the condition is met.
+5,Update health condition attributes,"Inputs: Health condition from step 4. Updates: If health condition is to_be_infected, update to infected, set number of days infected to 0."
+6,Monitor and manage infection progression,"Inputs: Health condition and number of days infected. Conditions and Updates: If infected, increment number of days infected by 1. If time exceeds healing period (6 days), update to recovered and reset number of days infected to None."

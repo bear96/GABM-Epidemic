@@ -1,0 +1,11 @@
+Function name,Function description,Where Function is used
+__init__(),Initializes the Citizen object by setting its attributes,__init__() of World Class
+get_health_string(),Returns a descriptive string representing the citizen's health condition based on the number of days infected. It provides different health descriptions for different infection stages,get_response_and_reasoning()
+ask_agent_stay_at_home(),Checks if response provided by LLM is a “yes” or “no” and returns True and False respectively,decide_location()
+get_response_and_reasoning(),Provides a prompt to LLM and parses the output. Returns response and reasoning by the LLM,ask_agent_stay_at_home()
+decide_location(),"If ask_agent_stay_at_home() returns True, agent’s location is set to “home” else it is set to “grid”",prepare_step()
+add_agent_interaction(),Creates a list of agents for interaction in the world,decide_agent_interactions() of World class
+interact(),Makes agents interact with other agents in the agent’s agent_interaction list,step()
+infect(),Infects another agent with respect to a probability threshold and health status ,interact()
+prepare_step(),Prepares the agent for the eventual step() function by deciding on its location first,step() of World class
+step(),Agent interacts with all the agents in their interaction list.,step() of World class
