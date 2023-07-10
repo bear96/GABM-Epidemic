@@ -61,17 +61,6 @@ class Citizen(mesa.Agent):
         if self.day_infected==6:
             return Health_strings[1]
         
-    ########################################
-    #      Location-helper functions       #
-    ########################################
-    def is_on_grid(self):
-        '''
-        #checks to see location of agent (isolation or grid)
-        True if going on grid
-        False if in isolation
-        '''
-
-        return (self.location=="grid")
         
     ########################################
     #      Decision-helper functions       #
