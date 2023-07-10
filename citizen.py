@@ -69,7 +69,7 @@ class Citizen(mesa.Agent):
     def ask_agent_stay_at_home(self):
         '''
         Used in self.decide_location. Returns True or False depending on whether agent wants to
-        stay at home and stores agent attributes in a memory.
+        stay at home.
         '''
         reasoning, response = self.get_response_and_reasoning()
         self.mems[self.model.schedule.steps] = {"health condition":self.health_condition,"reasoning": reasoning,
