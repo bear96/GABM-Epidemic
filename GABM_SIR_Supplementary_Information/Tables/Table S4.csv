@@ -1,8 +1,0 @@
-Function Name,Function description,Where function is used
-__init__(),"Initializes the World object and sets its attributes. It also creates the grid, initializes agents, and sets up the data collector.",Called when an instance is created of the World class
-distribute_agents(),Distributes agents on the grid randomly.,__init__() function of the World class
-decide_agent_interactions(),Determines the interaction partners for each agent based on the contact rate. The goal is to ensure that interactions between agents are a two-way process,step() function of World class
-step(),"Includes important steps such as agent preparations, determining interaction partners, calculating the total contact rate, executing individual agent steps, and updating agent attributes and global infection statistics",run_model() of the World class
-run_model(),"Runs the model for the specified number of time steps. It collects data, performs model steps, saves checkpoints, and prints relevant information",Called in the script that runs the simulation
-save_checkpoint(),Saves a checkpoint of the model to the specified file path,run_model() of the World class
-load_checkpoint(),Loads a checkpoint from the specified file path,Called in the script that runs the simulation
