@@ -23,5 +23,6 @@ Currently, the default values of the hyperparameters are: <br>
 ## Model Overview
 We present an innovative approach to incorporate human behavior into epidemic models by combining generative artificial intelligence (AI) with epidemic modeling. Our approach involves the development of a generative agent-based model (GABM) that utilizes GPT-3.5 to create agents with realistic personas. These agents possess the ability to reason, make decisions, and adapt their behavior in response to the evolving epidemic, taking into account individual characteristics, virus information, perceived health, and infection risks. Through extensive simulation experiments, we demonstrate that the GABM accurately replicates real-world conditions, generating patterns that closely resemble observed pandemic waves and endemic periods. By integrating generative AI into epidemic modeling, our approach enables a comprehensive representation of complex human behavior dynamics, leading to improved accuracy in projections and more informed policy decisions. <br>
 <br>
-
+Link to arXiv paper:
+<br>
 Please create an issue if something isn't working for you. We'll be happy to help.
