@@ -4,18 +4,18 @@ import ast
 import numpy as np
 import pandas as pd
 
-#load any checkpoint
+#Load any checkpoint
 model=World.load_checkpoint(r"checkpoint\run-1\GABM_1000_R03_individual_data-completed.pkl")
 
 mems = []
-#get the responses and other relevant attributes of the agents over time
+#Get the responses and other relevant attributes of the agents over time
 for agent in model.schedule.agents:
     mems.append(agent.mems)
 responses_over_time = pd.DataFrame(mems)
 #save responses over time as a .csv file
 responses_over_time.to_csv("responses_over_time.csv")
 
-#get statistical data from the datacollector of the world
+#Get statistical data from the datacollector of the world
 data = model.datacollector.get_model_vars_dataframe()
 df = pd.DataFrame(data)
 new_infections_newspaper=model.list_new_cases[:-1]
@@ -25,7 +25,7 @@ df['New Infections']=new_infections_newspaper
 df['Cumulative Infections'] = df['New Infections'].cumsum()
 df['Total Contact'] = model.track_contact_rate[:len(df)]
 df["Daily New Cases Day 4"] = model.day_infected_is_4[:len(df)]
-#save statistical data as a .csv file
+#Save statistical data as a .csv file
 df.to_csv("stats_for_agents.csv")
 
 nd = NameDataset()
@@ -111,7 +111,7 @@ df_age = pd.DataFrame(data_indiv['age'], columns=['age'])
 
 data_name=data_indiv['name']
 
-s=2000 #Change for # of sampled names
+s=2000 #Change for # of sampled names in run
 country_alpha2='US'
 if s % 2 == 1:
     s += 1
@@ -137,11 +137,11 @@ for name in data_name:
         rank.append(None)
         gender.append(None)
 
-# Convert lists into Series
+# Convert lists into series
 gender = pd.Series(gender, name='gender')
 rank = pd.Series(rank, name='Name Rank')
 
-#Normalize Rank
+#Normalize rank
 rank = rank.divide((s/2))
 rank = 1+1/(s/2)-rank
 df_name = pd.concat([data_name.rename('name'), gender, rank], axis=1)
@@ -214,5 +214,5 @@ df_logistic_regression=pd.concat([static_bio_info_matrix,df_health_string_matrix
 
 df_full = pd.concat([df_full, df_logistic_regression])
 
-#save processed outputs containing both responses and statistics over time for all agents in a .csv file.
+#Save processed outputs containing both responses and statistics over time for all agents in a .csv file.
 df_full_logistic_regression.to_csv("R03_n1000_Indiv_Data_for_logistic_regression.csv")
