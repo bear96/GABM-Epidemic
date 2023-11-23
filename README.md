@@ -1,4 +1,4 @@
-# GABM-SIR
+# GABM-Epidemic
 A new modeling technique using generative AI applied to an epidemic to incorporate human reasoning and decision making.
 
 ## Installation
