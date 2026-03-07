@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GABM Epidemic — Dewberry Hollow (Town View)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Load order matters: data → config → Phaser → map → schedule → render → pathfinding → agents → ui → town -->
+  <script src="papaparse.min.js"></script>
+  <script src="config.js"></script>
+  <script src="phaser.min.js"></script>
+  <script src="map-layout.js"></script>
+  <script src="agent-schedule.js"></script>
+  <script src="town-render.js"></script>
+  <script src="town-pathfinding.js"></script>
+  <script src="town-agents.js"></script>
+  <script src="town-ui.js"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0f;
+      color: #e2e8f0;
+      font-family: 'Press Start 2P', monospace;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 40px;
+      min-height: 100vh;
+    }
+
+    /* Phaser canvas (960px) + bio panel (200px) = 1160px */
+    #app {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 1160px;
+    }
+
+    #header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 2px 10px;
+      border-bottom: 1px solid #1e2d40;
+    }
+    #world-name  { font-size: 11px; letter-spacing: 3px; color: #e2e8f0; }
+    #model-label { font-size: 6px; color: #4a6580; }
+
+    #game-row {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    #game-container canvas {
+      cursor: default;
+      display: block;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      border: 1px solid #1e2d40;
+    }
+
+    /* Bio panel — right of the Phaser canvas */
+    #bio-panel {
+      width: 200px;
+      min-height: 640px;
+      background: #0d1520;
+      border: 1px solid #1e2d40;
+      border-left: none;
+      padding: 16px 14px;
+      font-size: 6px;
+      color: #4a6580;
+      line-height: 2.2;
+      flex-shrink: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .bio-placeholder {
+      font-size: 6px;
+      color: #4a6580;
+      text-align: center;
+      padding-top: 60px;
+      line-height: 2.8;
+    }
+
+    .bio-name {
+      font-size: 8px;
+      color: #e2e8f0;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+      word-break: break-word;
+    }
+    .bio-meta  { font-size: 5px; color: #7a9ab8; margin-bottom: 10px; }
+    .bio-traits {
+      font-size: 5px;
+      color: #4a6580;
+      margin-bottom: 10px;
+      line-height: 2;
+    }
+    .trait {
+      background: #141e2e;
+      border: 1px solid #1e2d40;
+      padding: 1px 4px;
+      font-size: 5px;
+      display: inline-block;
+      margin: 1px;
+      line-height: 2;
+    }
+    .bio-health   { font-size: 7px; margin-bottom: 6px; }
+    .bio-decision { font-size: 6px; color: #7a9ab8; margin-bottom: 12px; }
+    .bio-reasoning-label {
+      font-size: 5px;
+      color: #3a5068;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      border-top: 1px solid #1e2d40;
+      padding-top: 10px;
+    }
+    .bio-reasoning { font-size: 5px; color: #7a9ab8; line-height: 2.4; word-break: break-word; }
+
+    /* Charts below the map */
+    #charts-row {
+      display: none;
+      gap: 4px;
+      padding: 2px 0;
+    }
+    #sir-chart, #mobility-chart {
+      border: 1px solid #10181f;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    #scatter-chart {
+      display: none;
+      border: 1px solid #10181f;
+      margin-top: 2px;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    #loading {
+      text-align: center;
+      font-size: 8px;
+      color: #4a6580;
+      padding: 60px 20px;
+      animation: blink 1.1s step-end infinite;
+    }
+    #error-msg {
+      display: none;
+      text-align: center;
+      font-size: 7px;
+      color: #f87171;
+      padding: 40px 20px;
+      line-height: 2;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Controls row */
+    #controls {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 4px;
+      border-top: 1px solid #1e2d40;
+      flex-wrap: wrap;
+    }
+
+    .ctrl-btn {
+      background: #0e1520;
+      color: #c8d8e8;
+      border: 1px solid #2d3748;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 9px;
+      padding: 5px 9px;
+      cursor: pointer;
+      transition: background 0.1s;
+      line-height: 1;
+    }
+    .ctrl-btn:hover  { background: #1a2a3a; color: #fff; }
+    .ctrl-btn:active { background: #243040; }
+    #btn-play-pause  { border-color: #1a3a5a; color: #4895EF; }
+    #btn-play-pause:hover { background: #0d1a2a; }
+
+    #speed-group {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    #speed-label { font-size: 5px; color: #4a6580; margin-right: 2px; }
+
+    .speed-btn {
+      background: #0a0f18;
+      color: #4a6580;
+      border: 1px solid #1e2d40;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 6px;
+      padding: 4px 7px;
+      cursor: pointer;
+    }
+    .speed-btn.active { background: #151f30; color: #c8d8e8; border-color: #3a5068; }
+    .speed-btn:hover  { background: #121a28; }
+
+    #day-counter {
+      margin-left: auto;
+      font-size: 8px;
+      color: #7a9ab8;
+      white-space: nowrap;
+    }
+
+    #sir-counts { display: flex; gap: 14px; font-size: 8px; }
+    .sir-s { color: #4895EF; }
+    .sir-i { color: #FF6B35; }
+    .sir-r { color: #8338EC; }
+
+    /* Zoom controls row */
+    #zoom-row {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 4px;
+      border-top: 1px solid #111a24;
+    }
+    #zoom-row-label { font-size: 5px; color: #3a5068; }
+    #zoom-label     { font-size: 5px; color: #4a6580; min-width: 32px; }
+    .zoom-btn {
+      background: #0a0f18;
+      color: #7a9ab8;
+      border: 1px solid #1e2d40;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 8px;
+      padding: 3px 8px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .zoom-btn:hover { background: #1a2a3a; color: #c8d8e8; }
+
+    #scrubber-row { display: none; padding: 2px 0; }
+    #scrubber {
+      width: 100%;
+      height: 4px;
+      accent-color: #4895EF;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    #scrubber:hover { opacity: 1; }
+
+    #hint {
+      display: none;
+      font-size: 5px;
+      color: #2a3a4a;
+      padding: 2px 2px 0;
+      letter-spacing: 1px;
+    }
+    #hint a { color: #2a4050; text-decoration: none; }
+    #hint a:hover { color: #7a9ab8; }
+
+    /* Floating canvas tooltip */
+    #agent-tooltip {
+      display: none;
+      position: fixed;
+      pointer-events: none;
+      background: #0d1520ee;
+      border: 1px solid #1e2d40;
+      padding: 4px 8px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 6px;
+      color: #c8d8e8;
+      line-height: 1.8;
+      white-space: nowrap;
+      z-index: 9999;
+    }
+    #agent-tooltip .tt-name { color: #e2e8f0; font-size: 7px; }
+    #agent-tooltip .tt-health { margin-left: 6px; }
+
+    /* Custom UI tooltip (replaces native title) */
+    .ui-tip {
+      display: none;
+      position: fixed;
+      pointer-events: none;
+      background: #0d1520ee;
+      border: 1px solid #1e2d40;
+      padding: 4px 8px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 5px;
+      color: #7a9ab8;
+      line-height: 1.8;
+      white-space: nowrap;
+      z-index: 10000;
+      max-width: 280px;
+    }
+
+    /* ─── Mobile / Responsive ─────────────────────────── */
+    @media (max-width: 1200px) {
+      #app { width: 100%; max-width: 1160px; }
+
+      #game-row { flex-wrap: wrap; }
+
+      #game-container { width: 100%; }
+      #game-container canvas {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      #bio-panel {
+        width: 100%;
+        min-height: auto;
+        border-left: 1px solid #1e2d40;
+        border-top: none;
+        max-height: 260px;
+      }
+
+      .bio-placeholder { padding-top: 20px; }
+
+      #charts-row { flex-wrap: wrap; }
+      #sir-chart, #mobility-chart {
+        width: 100% !important;
+        max-width: 576px;
+      }
+      #scatter-chart { width: 100% !important; height: auto; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 8px 4px 20px; }
+
+      #header { flex-direction: column; gap: 4px; }
+      #world-name { font-size: 9px; }
+
+      #controls {
+        gap: 6px;
+        padding: 6px 2px;
+      }
+
+      .ctrl-btn {
+        font-size: 8px;
+        padding: 8px 12px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .speed-btn {
+        font-size: 6px;
+        padding: 6px 8px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      #day-counter {
+        font-size: 7px;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        order: -1;
+      }
+
+      #sir-counts {
+        font-size: 7px;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      #zoom-row .zoom-helper-text { display: none; }
+
+      .zoom-btn {
+        padding: 6px 12px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      #hint { display: none !important; }
+
+      #bio-panel { max-height: 200px; padding: 10px; }
+      .bio-placeholder { font-size: 5px; padding-top: 10px; }
+
+      .ui-tip { display: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+<div id="app">
+
+  <div id="header">
+    <span id="world-name">—</span>
+    <span id="model-label">—</span>
+  </div>
+
+  <div id="loading">LOADING TOWN...</div>
+  <div id="error-msg"></div>
+
+  <!-- Phaser canvas (960px) + HTML bio panel (200px) = 1160px -->
+  <div id="game-row">
+    <div id="game-container"></div>
+    <div id="bio-panel" title="Agent biography — click or hover an agent to see their details">
+      <div class="bio-placeholder">CLICK OR HOVER<br>AN AGENT<br>TO VIEW THEIR<br>BIO &amp; REASONING</div>
+    </div>
+  </div>
+
+  <div id="controls">
+    <button class="ctrl-btn" id="btn-play-pause" title="Play/Pause the simulation (Space)">▶ PLAY</button>
+
+    <div id="speed-group">
+      <span id="speed-label" title="Playback speed multiplier">SPD</span>
+      <button class="speed-btn"        data-speed="0.5" title="Half speed">½×</button>
+      <button class="speed-btn active" data-speed="1"   title="Normal speed">1×</button>
+      <button class="speed-btn"        data-speed="2"   title="Double speed">2×</button>
+      <button class="speed-btn"        data-speed="4"   title="4x speed">4×</button>
+    </div>
+
+    <div id="day-counter" title="Current simulation day, contact round, and time of day">Day — · —</div>
+
+    <div id="sir-counts">
+      <span class="sir-s" id="sir-s" title="Susceptible — healthy agents who can be infected">S: —</span>
+      <span class="sir-i" id="sir-i" title="Infected — currently sick agents spreading disease">I: —</span>
+      <span class="sir-r" id="sir-r" title="Recovered — immune agents who can no longer be infected">R: —</span>
+    </div>
+  </div>
+
+  <!-- Zoom controls (wired up in town.js after Phaser boots) -->
+  <div id="zoom-row">
+    <span id="zoom-row-label">ZOOM</span>
+    <button class="zoom-btn" id="btn-zoom-out"   title="Zoom out">−</button>
+    <button class="zoom-btn" id="btn-zoom-reset" title="Reset zoom">⌂</button>
+    <button class="zoom-btn" id="btn-zoom-in"    title="Zoom in">+</button>
+    <span id="zoom-label">30%</span>
+    <span class="zoom-helper-text" style="font-size:5px;color:#2a3a4a;margin-left:8px">drag/arrows to pan · scroll to zoom</span>
+
+  </div>
+
+  <div id="scrubber-row">
+    <input type="range" id="scrubber" title="Drag to jump to any day in the simulation" min="0" max="0" value="0">
+  </div>
+
+  <!-- Live charts: SIR + Mobility side-by-side (SVG), then scatter (canvas) -->
+  <div id="charts-row">
+    <div id="sir-chart"      style="width:576px;height:84px" title="SIR curve — Susceptible (blue), Infected (orange), Recovered (purple) over time"></div>
+    <div id="mobility-chart" style="width:576px;height:84px" title="Mobility — agents out in town (teal) vs at home (blue), new infections (orange)"></div>
+  </div>
+  <canvas id="scatter-chart" title="Phase plot — infection rate (X) vs mobility (Y) showing epidemic trajectory" width="1156" height="100"></canvas>
+
+  <div id="hint">
+    [SPACE] play/pause &nbsp;&nbsp; [↑↓←→] pan &nbsp;&nbsp; click agent to follow &nbsp;&nbsp; [ESC] unfollow
+  </div>
+
+</div><!-- #app -->
+<div id="agent-tooltip"></div>
+<div class="ui-tip" id="ui-tip"></div>
+
+<script>
+  // Show zoom row once Phaser is up (it's wired in town.js create())
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const zr = document.getElementById('zoom-row');
+      if (zr) zr.style.display = 'flex';
+    }, 800);
+  });
+
+  // Custom styled tooltips for [title] elements in #controls, #zoom-row, #charts-row
+  (function() {
+    const tip = document.getElementById('ui-tip');
+    if (!tip) return;
+    const zones = ['controls', 'zoom-row', 'charts-row', 'scrubber-row', 'header'];
+    let activeEl = null;
+
+    function show(e) {
+      const el = e.target.closest('[title]');
+      if (!el) return hide();
+      if (el === activeEl) return;
+      // Only act on elements inside our zones
+      if (!zones.some(id => el.closest('#' + id))) return;
+      activeEl = el;
+      // Steal the title so browser tooltip doesn't also show
+      el.dataset.tip = el.getAttribute('title');
+      el.removeAttribute('title');
+      tip.textContent = el.dataset.tip;
+      tip.style.display = 'block';
+      position(e);
+    }
+
+    function position(e) {
+      if (!activeEl) return;
+      const x = e.clientX + 12;
+      const y = e.clientY - 28;
+      tip.style.left = Math.min(x, window.innerWidth - tip.offsetWidth - 8) + 'px';
+      tip.style.top  = Math.max(4, y) + 'px';
+    }
+
+    function hide() {
+      if (activeEl && activeEl.dataset.tip) {
+        activeEl.setAttribute('title', activeEl.dataset.tip);
+        delete activeEl.dataset.tip;
+      }
+      activeEl = null;
+      tip.style.display = 'none';
+    }
+
+    document.addEventListener('mouseover', show);
+    document.addEventListener('mousemove', position);
+    document.addEventListener('mouseout', function(e) {
+      const el = e.target.closest('[title], [data-tip]');
+      if (el === activeEl || (el && el.contains(e.relatedTarget))) return;
+      hide();
+    });
+  })();
+</script>
+<script src="town.js"></script>
+</body>
+</html>

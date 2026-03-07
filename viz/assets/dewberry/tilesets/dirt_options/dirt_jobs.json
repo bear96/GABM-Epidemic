@@ -1,0 +1,44 @@
+{
+  "warm_sandy": {
+    "label": "Warm Sandy",
+    "tileset_id": "75f69707-ca24-4bfd-9f7f-30e921b35588",
+    "job_id": "9cc44674-2b09-4903-8370-9f62c9d8d54a",
+    "status": "completed",
+    "downloaded": true
+  },
+  "packed_earth": {
+    "label": "Packed Earth",
+    "tileset_id": "37658cec-d9bf-4017-8e17-e047d97baf1a",
+    "job_id": "95f7c4a6-68f8-4a8c-9e14-feb21d7d38d8",
+    "status": "completed",
+    "downloaded": true
+  },
+  "sun_baked": {
+    "label": "Sun-Baked Clay",
+    "tileset_id": "29741b15-dd90-4b78-96fe-82bf2331b03c",
+    "job_id": "95bd0b7f-139a-40bb-901a-c39c72361afb",
+    "status": "completed",
+    "downloaded": true
+  },
+  "village_square": {
+    "label": "Village Square",
+    "tileset_id": "84492094-02b7-4474-aaca-71261c2fbde6",
+    "job_id": "ab803ba3-dac7-4817-a032-1cd05f519e9b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "forest_floor": {
+    "label": "Forest Clearing",
+    "tileset_id": "8612ff74-9f39-499a-b1f0-4d57f2ad60ac",
+    "job_id": "8d2a1ace-bf90-4a60-b9bd-946270186a47",
+    "status": "completed",
+    "downloaded": true
+  },
+  "golden_dust": {
+    "label": "Golden Dust",
+    "tileset_id": "92140f59-11a3-4f96-a38d-e05444e20e6e",
+    "job_id": "f04ba2bb-740e-4dc5-b48f-c1df3a27bf8c",
+    "status": "completed",
+    "downloaded": true
+  }
+}

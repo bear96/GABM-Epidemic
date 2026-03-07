@@ -1,0 +1,156 @@
+{
+  "pine_tree_1": {
+    "type": "nature",
+    "job_id": "75fd0132-9f95-4de4-be87-9ab0eba4d07f",
+    "object_id": "0be3dea5-cc6b-4463-8c59-6eff964a1f40",
+    "status": "completed",
+    "downloaded": true
+  },
+  "pine_tree_2": {
+    "type": "nature",
+    "job_id": "22c45b85-90bd-45f3-ab5e-6560a4a689af",
+    "object_id": "d724a725-a6ed-48e9-8bed-f4ef73ca6c5b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "pine_tree_3": {
+    "type": "nature",
+    "job_id": "5803e1bc-9ad9-4f96-9d7c-c8b42a91a664",
+    "object_id": "efdc3145-d999-42c2-8feb-b18fbd6e8916",
+    "status": "completed",
+    "downloaded": true
+  },
+  "lily_pads": {
+    "type": "nature",
+    "job_id": "d39040ad-0fa8-40bd-810d-2ccd76e132bd",
+    "object_id": "d3d5ee71-0a05-429c-9c73-284e46ce74d6",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cattails": {
+    "type": "nature",
+    "job_id": "46618ff7-f392-46f2-920d-0d8cb8085ca7",
+    "object_id": "29ac6e88-3ceb-4ae7-a955-f919724fc71f",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cabin": {
+    "type": "nature",
+    "job_id": "dddf22ed-042a-4b93-9cd3-0de34d9887fa",
+    "object_id": "d0d2c110-fa7a-4e53-981f-9bf0bfdc6ba4",
+    "status": "completed",
+    "downloaded": true
+  },
+  "campfire": {
+    "type": "nature",
+    "job_id": "b04d538c-d2c7-4918-ad72-31abab030429",
+    "object_id": "d05dc4bc-9952-4629-abee-fd681b05c0bc",
+    "status": "completed",
+    "downloaded": true
+  },
+  "log_seat_1": {
+    "type": "nature",
+    "job_id": "b04ab779-2c1c-45d9-bc72-f3641a2704a0",
+    "object_id": "4a9b5154-f0a0-4cbf-92c0-b42f7bb269b4",
+    "status": "completed",
+    "downloaded": true
+  },
+  "log_seat_2": {
+    "type": "nature",
+    "job_id": "7a2e5dc4-e20c-4bc0-9554-78eda6a66d8c",
+    "object_id": "ee6fd0c0-b2c0-4754-9bd2-dc3fbec6d21a",
+    "status": "completed",
+    "downloaded": true
+  },
+  "woodpile": {
+    "type": "nature",
+    "job_id": "f9cf9d10-fcbd-4346-9533-e46cb589b8d7",
+    "object_id": "03944e2a-b796-4e1e-8ff6-5a814457b291",
+    "status": "completed",
+    "downloaded": true
+  },
+  "trail_section": {
+    "type": "nature",
+    "job_id": "461a0f35-cdd0-4fd1-b89e-5358600d4d96",
+    "object_id": "cff692f0-ea2d-4a8e-95d7-5ec4decf61c5",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cliff_face": {
+    "type": "nature",
+    "job_id": "8964f339-7601-495b-ad4c-2c74829f80a2",
+    "object_id": "eda86de8-0781-42e3-a1e6-fb0da02d9302",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cliff_corner": {
+    "type": "nature",
+    "job_id": "073231ec-df4c-4f7b-9c05-f14792399a4c",
+    "object_id": "6048794d-6e7a-4d35-96e7-3bd29b910a8b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "boulder_large": {
+    "type": "nature",
+    "job_id": "535ce182-2a9f-4b3e-9960-c2c3da0c4802",
+    "object_id": "ce298ad5-6715-4f4e-b140-5381c795d0b5",
+    "status": "completed",
+    "downloaded": true
+  },
+  "boulder_medium": {
+    "type": "nature",
+    "job_id": "b736dc78-d0ce-44e8-85e5-cd018240653a",
+    "object_id": "cf6312ff-05ad-48e4-8178-347b4f7a1dfa",
+    "status": "completed",
+    "downloaded": true
+  },
+  "boulder_small": {
+    "type": "nature",
+    "job_id": "8cb80c72-2b88-4320-9699-6da08de825d0",
+    "object_id": "afd7ac1f-d84e-43e0-bc4c-4c4864fa98f9",
+    "status": "completed",
+    "downloaded": true
+  },
+  "dewberry_bush_1": {
+    "type": "nature",
+    "job_id": "aabbb0e0-813d-4625-ba41-8e9d16386033",
+    "object_id": "ef1fbd81-6944-4b68-84ec-4e5193fc568a",
+    "status": "completed",
+    "downloaded": true
+  },
+  "dewberry_bush_2": {
+    "type": "nature",
+    "job_id": "34336cf9-7a81-44dd-8bd0-a7e2bac33a59",
+    "object_id": "ed462cbf-6f6a-4762-bdfd-c24ef242b954",
+    "status": "completed",
+    "downloaded": true
+  },
+  "dewberry_bush_3": {
+    "type": "nature",
+    "job_id": "37bac3b1-3ce5-48dd-9a7f-d4165a55ef5e",
+    "object_id": "b9cc9d22-8b02-43d7-ae60-96f4143575d4",
+    "status": "completed",
+    "downloaded": true
+  },
+  "berry_basket": {
+    "type": "nature",
+    "job_id": "95a64889-7be9-4646-a1bc-da8d87bf0315",
+    "object_id": "cfd354a1-9466-4c22-962d-148649137c7b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "mushroom_cluster": {
+    "type": "nature",
+    "job_id": "d4eafbec-b2f8-4b80-88ca-a9ceb1929b24",
+    "object_id": "fb3c7b47-7ca1-441b-ab0a-44c69ad93a7b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "fallen_log": {
+    "type": "nature",
+    "job_id": "261389f5-f688-4a8e-ad0c-75b10a0f811e",
+    "object_id": "7f0fe633-4626-4c4b-82ad-4ff515749b64",
+    "status": "completed",
+    "downloaded": true
+  }
+}

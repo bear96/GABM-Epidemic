@@ -1,0 +1,384 @@
+{
+  "floor_wood_light": {
+    "type": "interior",
+    "job_id": "dc1a3b88-ba34-4882-b6d8-cd4c7fd1217f",
+    "object_id": "3c3f98d7-9d37-4471-b7fb-c618ba630a71",
+    "status": "completed",
+    "downloaded": true
+  },
+  "floor_wood_dark": {
+    "type": "interior",
+    "job_id": "6324ea67-8ce4-47d8-b00f-6d03305f1251",
+    "object_id": "512176ab-d435-474d-81cc-4e30ca08393b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "floor_stone_grey": {
+    "type": "interior",
+    "job_id": "9aaa1667-c87f-4c79-bdbb-5f5c11a3676c",
+    "object_id": "c7f58273-38d3-46f7-ac47-58c30d2b2840",
+    "status": "completed",
+    "downloaded": true
+  },
+  "floor_stone_warm": {
+    "type": "interior",
+    "job_id": "8841b0ae-a8ed-4c46-a133-384eb5d22a0e",
+    "object_id": "a99ee2bf-89cf-4f71-bef0-861360ee9f93",
+    "status": "completed",
+    "downloaded": true
+  },
+  "floor_checkered": {
+    "type": "interior",
+    "job_id": "aec2bd99-d986-4c84-8d67-7522723126e6",
+    "object_id": "0c225284-7f49-4c9e-8e80-9b3636f2c4c3",
+    "status": "completed",
+    "downloaded": true
+  },
+  "podium_teacher": {
+    "type": "interior",
+    "job_id": "302965ae-056d-4f9d-ad24-88aee3d786bd",
+    "object_id": "888ec2e1-1dd5-44b0-bd8b-43de8bac009a",
+    "status": "completed",
+    "downloaded": true
+  },
+  "desk_teacher": {
+    "type": "interior",
+    "job_id": "e9e4cbc1-882d-469c-b0bb-735c88f4242d",
+    "object_id": "8f21cb98-a7ff-44f2-bb28-f99a38a48040",
+    "status": "completed",
+    "downloaded": true
+  },
+  "bookshelf_tall": {
+    "type": "interior",
+    "job_id": "ba0a047b-9ee0-4233-a18b-d2bee3b459b4",
+    "object_id": "2ef8853b-db45-4005-bfcd-7c87b4e6c88a",
+    "status": "completed",
+    "downloaded": true
+  },
+  "bookshelf_wide": {
+    "type": "interior",
+    "job_id": "a725b17c-f69c-4889-b059-53d9ad48db78",
+    "object_id": "b9f107b4-622a-444c-8a4f-cecf06d0c6b6",
+    "status": "completed",
+    "downloaded": true
+  },
+  "reading_table": {
+    "type": "interior",
+    "job_id": "122e0511-62fa-44e1-b569-e5f647e4a51a",
+    "object_id": "35093526-14fa-43af-b84b-3d0df97db019",
+    "status": "completed",
+    "downloaded": true
+  },
+  "globe": {
+    "type": "interior",
+    "job_id": "282066d4-1f9f-4cfd-b23d-d7e50636240a",
+    "object_id": "2d2d0fa8-c5fb-4ec0-87e6-a90013a90dcc",
+    "status": "completed",
+    "downloaded": true
+  },
+  "table_round": {
+    "type": "interior",
+    "job_id": "04ca6546-7cca-42db-9106-089e89a46fd4",
+    "object_id": "d8dca6c2-cceb-4b78-95c5-25b27780aa5f",
+    "status": "completed",
+    "downloaded": true
+  },
+  "table_long": {
+    "type": "interior",
+    "job_id": "19b144a0-fa47-49ff-a13e-61517919fa4a",
+    "object_id": "37f9cf61-1949-404c-b0e2-2991e6280fb9",
+    "status": "completed",
+    "downloaded": true
+  },
+  "rug_ornate": {
+    "type": "interior",
+    "job_id": "7d8a684f-1f4a-4de5-a856-1c6c4a98cecf",
+    "object_id": "e3898694-7ab3-4a29-b174-9e378ee15d87",
+    "status": "completed",
+    "downloaded": true
+  },
+  "counter_shop": {
+    "type": "interior",
+    "job_id": "4f2849aa-f792-4944-96e6-399c3a66351a",
+    "object_id": "1d43fea9-d83c-4f68-9f52-96b0c45754a8",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cabinet_medicine": {
+    "type": "interior",
+    "job_id": "cbc6ea27-7667-4827-8b79-51ac12bf6b48",
+    "object_id": "ee0e0b03-53f4-4a35-a6b1-98b2d998b5e1",
+    "status": "completed",
+    "downloaded": true
+  },
+  "bed_single": {
+    "type": "interior",
+    "job_id": "63e0423f-0f53-4f9e-a0b9-c1ddebc6a58d",
+    "object_id": "52145bce-c466-45ce-8562-880175599462",
+    "status": "completed",
+    "downloaded": true
+  },
+  "bed_hospital": {
+    "type": "interior",
+    "job_id": "3794aae7-da99-4ef5-919e-9b26d50da72b",
+    "object_id": "21b0dc03-b416-434e-b409-74eb665718bf",
+    "status": "completed",
+    "downloaded": true
+  },
+  "stove_kitchen": {
+    "type": "interior",
+    "job_id": "8c6227ee-630d-4842-bbd8-d15357b78fda",
+    "object_id": "8c9f4c11-84a8-4586-82ae-899238a87c6c",
+    "status": "completed",
+    "downloaded": true
+  },
+  "fireplace": {
+    "type": "interior",
+    "job_id": "31175398-2915-4d54-8c3a-1c8fc7cb9805",
+    "object_id": "94a25fb1-c4cc-447a-9228-fcdcaae244c8",
+    "status": "completed",
+    "downloaded": true
+  },
+  "piano": {
+    "type": "interior",
+    "job_id": "7b1ae99b-3ba6-44c4-a7bf-50710648fff9",
+    "object_id": "5b207e4f-b82d-4639-a0da-50c523c2c8d5",
+    "status": "completed",
+    "downloaded": true
+  },
+  "pulpit": {
+    "type": "interior",
+    "job_id": "23056951-0b28-48a5-aec3-218c9550d0ba",
+    "object_id": "b0874ba4-76c0-4a16-be56-1d66ed724098",
+    "status": "completed",
+    "downloaded": true
+  },
+  "altar": {
+    "type": "interior",
+    "job_id": "fb6b0b17-b4fd-4f9a-b34b-6eeb6d36efad",
+    "object_id": "f082fbe4-a8c6-4aba-a26d-ac65b7ea8e00",
+    "status": "completed",
+    "downloaded": true
+  },
+  "wall_brick_red": {
+    "type": "interior",
+    "job_id": "122b9da3-040b-449a-bc8e-9f7fcdf44e28",
+    "object_id": "0631c084-7ef1-4c2b-a627-4d09de7cb17b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "wall_plaster_white": {
+    "type": "interior",
+    "job_id": "c3144aad-f689-4dc9-818d-d49ab07cec20",
+    "object_id": "e78999c9-4ec5-4b9b-b165-921a09140f1b",
+    "status": "completed",
+    "downloaded": true
+  },
+  "wall_wood_panel": {
+    "type": "interior",
+    "job_id": "b9e2639a-ed08-4ed1-b70f-8fa23f75b03b",
+    "object_id": "5674de93-ec11-4f16-83fd-55282d4d2cfc",
+    "status": "completed",
+    "downloaded": true
+  },
+  "wall_stone": {
+    "type": "interior",
+    "job_id": "98916576-ea7a-43ba-b18a-53cd9c67142a",
+    "object_id": "dae3a38a-c3de-4c6e-af2a-0f1f2cbe1f6c",
+    "status": "completed",
+    "downloaded": true
+  },
+  "desk_student": {
+    "type": "interior",
+    "job_id": "fdf7db30-0478-418c-b725-042ee7551387",
+    "object_id": "ddc2f008-7989-46d5-844c-55a163bed604",
+    "status": "completed",
+    "downloaded": true
+  },
+  "chair_cushioned": {
+    "type": "interior",
+    "job_id": "5094be0c-be06-49a1-96e8-e2dee6716592",
+    "object_id": "03611a8e-e620-4d76-af8b-3894e2768b8f",
+    "status": "completed",
+    "downloaded": true
+  },
+  "sofa": {
+    "type": "interior",
+    "job_id": "67ad5b95-b1b5-471e-b6e5-b5de4af2e519",
+    "object_id": "ccea79c5-7c2b-40b5-b6b9-ec4a766c173c",
+    "status": "completed",
+    "downloaded": true
+  },
+  "potted_plant_indoor": {
+    "type": "interior",
+    "job_id": "efd4a373-240f-4b2d-9734-ecb959fc8a6c",
+    "object_id": "38d088b5-ee34-4efb-83f2-ff66c25318d4",
+    "status": "completed",
+    "downloaded": true
+  },
+  "barrel": {
+    "type": "interior",
+    "job_id": "668a7452-4d16-487a-8a3d-de1e8d9457d4",
+    "object_id": "7b2b6f5b-b9bf-489d-a32e-4d0740549a63",
+    "status": "completed",
+    "downloaded": true
+  },
+  "crate_wooden": {
+    "type": "interior",
+    "job_id": "7edcacfc-4194-491d-bec6-e140cabd2773",
+    "object_id": "abcee946-cc12-462e-8208-8dbff83b7290",
+    "status": "completed",
+    "downloaded": true
+  },
+  "pew_church": {
+    "type": "interior",
+    "job_id": "60d3418b-75ef-49a8-98f1-a7004c6a689e",
+    "object_id": "1c7a7031-55b1-4a39-b7e7-67c9264ae961",
+    "status": "completed",
+    "downloaded": true
+  },
+  "chair_wooden": {
+    "type": "interior",
+    "job_id": "e00e0302-cc0d-4b2a-a40f-45e686816e55",
+    "object_id": "286739e0-54ee-4fb9-9700-2de9e16f3984",
+    "status": "completed",
+    "downloaded": true
+  },
+  "blackboard": {
+    "type": "interior",
+    "job_id": "a0fbd82c-8adf-48f2-a104-ebe2fa3d1e9e",
+    "object_id": "306f2e2a-fc53-4985-b44f-f969ccdce576",
+    "status": "completed",
+    "downloaded": true
+  },
+  "coffee_machine": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "pastry_display": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cafe_menu_board": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "coffee_cups": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cafe_table_set": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "sink_kitchen": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "shelf_bottles": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "market_shelf": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "produce_basket": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "cash_register": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "workbench": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "tool_rack": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "hay_bale": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "water_trough": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "pitchfork_rack": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "sack_grain": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "milk_pail": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "swing_set": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "picnic_table": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "garden_arch": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "watering_can": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "scarecrow": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "garden_plot": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "pond_water": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "duck": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  },
+  "picnic_blanket": {
+    "type": "interior",
+    "status": "completed",
+    "downloaded": true
+  }
+}
